@@ -7,16 +7,16 @@ description: 共同学习进步!
 highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: red
+cover_color: 
 
 # The blog button should not be removed.
 blog_button:
-    title: Blog
-    description: Visit blog
+    title: 博客
+    description: 我的博客
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
+    - {title: 简书, description: 简书主页, url: 'https://www.jianshu.com/u/4c385195fe52'}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
