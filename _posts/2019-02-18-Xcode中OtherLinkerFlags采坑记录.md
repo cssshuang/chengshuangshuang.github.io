@@ -1,3 +1,5 @@
+# -Objc和-all_load的区别
+
 ### -Objc
 
 ​        这个flag告诉链接器把库中定义的Objective-C类和Category都加载进来。这样编译之后的app会变大（因为加载了其他的objc代码进来）。但是如果静态库中有类和category的话只有加入这个flag才行。
