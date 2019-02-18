@@ -1,43 +1,57 @@
-# Basic
-title: chengshuangshuang
-subtitle: chengshuangshuang's blog
-description: 共同学习进步!
+# basic
+# ============================================================================
+# if your site is serving on https://xxx.github.io, set `baseurl: /`
+# if your site is serving on https://xxx.github.io/path, set `baseurl: /path`
+baseurl: /
 
-# Format
-highlighter: rouge
+# site title
+title: 程双双
 
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: 
+# site favicon, absolute path required
+favicon: /assets/img/css.ico
 
-# The blog button should not be removed.
-blog_button:
-    title: 博客
-    description: 我的博客
+# home button image, absolute path requried
+avatar: /assets/img/smallpig.jpg
+# specify meaningful description for your avatar
+avatarInfo: "Small pig"
 
-# Navigation buttons in the front page.
-nav:
-    - {title: 简书, description: 简书主页, url: 'https://www.jianshu.com/u/4c385195fe52'}
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
+# default variables for post-type page
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comment: true
 
-# Pagination
-plugins: [jekyll-paginate]
-paginate: 10
-paginate_path: "page/:num/"
 
-# Comment
-comment:
-    disqus: chengshuangshuang
-    # duoshuo: 
-    
-# Social
-social:
-    weibo: 又又又又双双
-    github: cssshuang
-    mail: cssshuang@sina.com
+# sass
+# ============================================================================
+sass:
+  sass_dir: _sass
+  style: compressed
 
-# Google Analytics
-ga:
-    # id: your_ga_id
-    # host: your_host
 
-theme: jekyll-theme-cayman
+# exclude none site related files
+# ============================================================================
+exclude:
+  - README.md
+  - LICENSE
+  - github
+  - package.json
+  - package-lock.json
+  - node_modules
+
+
+# google analytics
+# ============================================================================
+# turn it off -> ga: false
+ga: false
+
+
+# disqus
+# ============================================================================
+# turn it off for all posts -> disqus: false
+# turn it off for a particular post -> add `comment: false` to post front matter
+disqus: chengshuangshuang

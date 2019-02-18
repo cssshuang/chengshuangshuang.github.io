@@ -1,16 +1,29 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
 
-<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time> &#8226; <span class="post-meta__tags tags">{{page.tags | join:' '}}</span>
-    </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+  {% include head.html %}
 
-  <section class="post">
+  <link rel="stylesheet" href="{{ 'assets/css/page.css' | relative_url }}" media="all">
+
+</head>
+<body>
+
+  <div class="page-content clear-header--top clear-navbar--top clear-footer--bottom">
+
+    {% include header.html %}
+
+    {% include navigation.html %}
+
+    <main class="main clear-header--left">
+
     {{ content }}
-  </section>
-</article>
+
+    </main>
+
+    {% include footer.html %}
+
+  </div>
+
+</body>
+</html>

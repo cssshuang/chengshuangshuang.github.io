@@ -1,19 +1,46 @@
 ---
-layout: default
+layout: page
 ---
 
-<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time> &#8226; <span class="post-meta__tags tags">{{page.tags | join:' '}}</span>
+<div class="post">
+
+  <div class="card">
+
+    {% if page.title %}
+    <h1 class="card__title article_title">{{ page.title | capitalize }}</h1>
+    {% endif %}
+
+    {% if page.date %}
+    <div class="card__date">{{ page.date | date: "%Y / %m / %d" }}</div>
+    {% endif %}
+
+    <div class="article__content">{{ content }}</div>
+
+  </div>
+
+
+  <div class="post__comment">
+    {% if site.disqus and page.comment %}
+    <div class="post__comment--on">
+      {% assign url = page.url | absolute_url %}
+      {% include disqus.html username = site.disqus url = url id = page.id %}
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+    {% else %}
+    <div class="post__comment--off">Comment is not allowed.</div>
+    {% endif %}
+  </div>
 
-  <section class="post">
-    {{ content }}
-  </section>
-</article>
 
-{% include read-more.html %}
-{% include comments.html %}
+  <div class="post__pagination">
+    <ul>
+      {% if page.next %}
+      <li>{% include card.html post=page.next volume='less' %}</li>
+      {% endif %}
+
+      {% if page.previous %}
+      <li>{% include card.html post=page.previous volume='less' %}</li>
+      {% endif %}
+    </ul>
+  </div>
+
+</div>
