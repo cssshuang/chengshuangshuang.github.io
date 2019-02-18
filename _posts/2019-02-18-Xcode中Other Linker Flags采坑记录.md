@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Xcode中Other Linker Flags采坑记录
+date: 2019-02-18
 excerpt: -Objc和-all_load的区别
+project: true
+tags: [Xcode, Other Linker Flags]
 comments: false
 ---
 
