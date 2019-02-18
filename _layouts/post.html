@@ -1,46 +1,49 @@
 ---
-layout: page
+layout: compress
 ---
-
-<div class="post">
-
-  <div class="card">
-
-    {% if page.title %}
-    <h1 class="card__title article_title">{{ page.title | capitalize }}</h1>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+    {% include head.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn">
+            <div class="content">
+                <div class="post-title {% if page.feature %} feature {% endif %}">
+                    <h1>{{ page.title }}</h1>
+                    <h4>{{ page.date | date_to_string }}</h4>
+                    {% if site.reading_time %}
+                    <p class="reading-time">
+                      <i class="fa fa-clock-o"></i>
+                      {% include read-time.html %}
+                    </p><!-- /.entry-reading-time -->
+                    {% endif %}
+                    {% if page.project %}
+                    <a class="btn zoombtn" href="{{site.url}}/projects/">
+                    {% else %}
+                    <a class="btn zoombtn" href="{{site.url}}/posts/">
+                    {% endif %}
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                </div>
+                {{ content }}
+                <div class="entry-meta">
+                {% include meta.html %}
+                </div>
+            </div>
+        </div>
+        {% if page.comments and site.disqus_shortname %}<section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread -->{% endif %}
+    </header>
+    {% include scripts.html %}
+    {% if site.mathjax == true %}
+    <!-- MathJax -->
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endif %}
-
-    {% if page.date %}
-    <div class="card__date">{{ page.date | date: "%Y / %m / %d" }}</div>
-    {% endif %}
-
-    <div class="article__content">{{ content }}</div>
-
-  </div>
-
-
-  <div class="post__comment">
-    {% if site.disqus and page.comment %}
-    <div class="post__comment--on">
-      {% assign url = page.url | absolute_url %}
-      {% include disqus.html username = site.disqus url = url id = page.id %}
-    </div>
-    {% else %}
-    <div class="post__comment--off">Comment is not allowed.</div>
-    {% endif %}
-  </div>
-
-
-  <div class="post__pagination">
-    <ul>
-      {% if page.next %}
-      <li>{% include card.html post=page.next volume='less' %}</li>
-      {% endif %}
-
-      {% if page.previous %}
-      <li>{% include card.html post=page.previous volume='less' %}</li>
-      {% endif %}
-    </ul>
-  </div>
-
-</div>
+</body>
+</html>

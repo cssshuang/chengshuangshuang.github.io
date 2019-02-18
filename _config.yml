@@ -1,57 +1,76 @@
-# basic
-# ============================================================================
-# if your site is serving on https://xxx.github.io, set `baseurl: /`
-# if your site is serving on https://xxx.github.io/path, set `baseurl: /path`
-baseurl: /
+# Site
+title:              程双双
+bio:                '我慢慢地听雪落下的声音~'
+description:        "我慢慢地听雪落下的声音~"
+reading_time:       true
+words_per_minute:   200
+logo:               'assets/img/logo.png'
+background:         'assets/img/background.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+url:                https://www.chengshuangshuang.com
 
-# site title
-title: 程双双
-
-# site favicon, absolute path required
-favicon: /assets/img/css.ico
-
-# home button image, absolute path requried
-avatar: /assets/img/smallpig.jpg
-# specify meaningful description for your avatar
-avatarInfo: "Small pig"
-
-# default variables for post-type page
-defaults:
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      comment: true
-
-
-# sass
-# ============================================================================
+# Jekyll
+permalink:          /:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
 sass:
-  sass_dir: _sass
-  style: compressed
+  sass_dir:         _sass
+  style:            compressed
 
+# Comments
+disqus_shortname:   chengshuangshuang
 
-# exclude none site related files
-# ============================================================================
-exclude:
-  - README.md
-  - LICENSE
-  - github
-  - package.json
-  - package-lock.json
-  - node_modules
+# Social
+# if you don't have any of social below, comment the line.
+#google:
+  #plus:            #username
+  #analytics:
+  #verify:
+  #ad-client:
+  #ad-slot:
+#bing-verify:
+email:              cssshuang@sina.com
+#twitter:           username
+#facebook:          username
+github-url:         https://github.com/cssshuang
+#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+#linkedin:          username
+#xing:              username
+#instagram:          username
+#lastfm:            username
+#tumblr:            username
+#medium:            '@username'
+#pinterest:         username
+#foursquare:        username
+#steam:              username
+#dribbble:          username
+#youtube:           username
+#youtube-channel:   channel
+#soundcloud:        username
+weibo:              又又又又双双
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
 
+# Gems
+gems:
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
 
-# google analytics
-# ============================================================================
-# turn it off -> ga: false
-ga: false
+jekyll-mentions:
+    base_url: https://github.com
 
-
-# disqus
-# ============================================================================
-# turn it off for all posts -> disqus: false
-# turn it off for a particular post -> add `comment: false` to post front matter
-disqus: chengshuangshuang
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
