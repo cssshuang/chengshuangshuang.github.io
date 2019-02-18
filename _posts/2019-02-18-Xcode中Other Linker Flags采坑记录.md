@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Xcode中Other Linker Flags采坑记录
-excerpt: 采坑记录
+excerpt: -Objc和-all_load的区别
 comments: false
 ---
 
